@@ -1,10 +1,5 @@
 const mongoose = require('mongoose');
-
-// Connect to MongoDB...
-mongoose.connect('mongodb://localhost/demo');
-
-const userModel = require('../models/userModel');
-const User = mongoose.model('Users');
+const User = require('../models/userModel');
 
 let crypto = require('crypto'), hmac, signature;
 

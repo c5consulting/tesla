@@ -7,6 +7,15 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
+const mongoose = require('mongoose');
+
+// Connect to MongoDB...
+const db = mongoose.connect('mongodb://localhost/tesladb');
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+  console.log('Connected to our mongodb on '+new Date());
+});
 const app = express();
 
 // view engine setup
